@@ -1,0 +1,14 @@
+src/
+examples/
+demo/
+comparison/
+tsconfig.json
+.gitignore
+*.log
+*.gif
+*.cast
+*.md
+!README.md
+node_modules/
+.DS_Store
+test.js

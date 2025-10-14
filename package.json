@@ -1,0 +1,61 @@
+{
+  "name": "soldier",
+  "version": "0.1.0",
+  "description": "A modern, type-safe CLI framework with zero dependencies",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "command",
+    "commander",
+    "arg",
+    "option",
+    "parser",
+    "typescript",
+    "flags",
+    "yargs",
+    "minimist",
+    "getopts",
+    "command-line",
+    "cli-framework",
+    "type-safe",
+    "zero-dependencies",
+    "lightweight",
+    "arguments",
+    "cli-app",
+    "terminal",
+    "console"
+  ],
+  "author": "gzew",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzew/soldier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gzew/soldier/issues"
+  },
+  "homepage": "https://github.com/gzew/soldier#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
