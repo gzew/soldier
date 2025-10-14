@@ -4,22 +4,14 @@
 
 Works perfectly with plain JavaScript, but gives you amazing type inference when you use TypeScript.
 
-## Why Soldier?
+## Features
 
-Built from the ground up for both JavaScript and TypeScript, Soldier provides automatic validation, type conversion, and a cleaner API than existing solutions. Get all the features whether you use JS or TS!
-
-### vs Commander
-
-| Feature | Soldier | Commander |
-|---------|---------|-----------|
-| **Dependencies** | 0 | 0 |
-| **Bundle Size** | ~5KB | ~7KB |
-| **TypeScript** | Native, full type inference | Types via @types |
-| **Option Types** | Automatic type conversion & validation | Manual parsing |
-| **Validation** | Built-in (min/max, choices, required) | Manual |
-| **Type Safety** | Fully inferred option types | Requires manual typing |
-| **Async Actions** | Native async/await support | Callback-based |
-| **Modern** | ES Modules, latest TypeScript | CommonJS legacy |
+- **Zero Dependencies** - Lightweight and fast
+- **Full TypeScript Support** - Native type inference for all options
+- **Automatic Validation** - Built-in validators for choices, min/max, required
+- **Type Conversion** - Automatic parsing of strings, numbers, and booleans
+- **Modern API** - Clean, fluent interface with async/await support
+- **Works with JavaScript** - All features available in plain JS too
 
 ## Installation
 
@@ -334,73 +326,6 @@ node examples/deploy.ts deploy --env staging --port 8080
 node examples/simple.js greet --name "World" --loud
 node examples/deploy.js deploy --env staging --port 8080
 node examples/api.js start --port 4000 --workers 2
-```
-
-## Comparison Code
-
-### Soldier
-
-```typescript
-import { cli } from 'soldier';
-
-const app = cli('deploy')
-  .version('1.0.0')
-  .description('Deploy tool');
-
-app
-  .command('up')
-  .option('--env <env>', {
-    choices: ['prod', 'dev'] as const,
-    required: true
-  })
-  .option('--port <port>', {
-    type: 'number',
-    min: 1,
-    max: 65535,
-    default: 3000
-  })
-  .action(async (opts) => {
-    // opts.env is 'prod' | 'dev'
-    // opts.port is number
-    // Validation is automatic
-    console.log(`Deploying to ${opts.env}:${opts.port}`);
-  });
-
-app.parse();
-```
-
-### Commander
-
-```typescript
-import { program } from 'commander';
-
-program
-  .version('1.0.0')
-  .description('Deploy tool');
-
-program
-  .command('up')
-  .requiredOption('--env <env>', 'Environment')
-  .option('--port <port>', 'Port', '3000')
-  .action((opts) => {
-    // Manual type checking needed
-    const env = opts.env as string;
-    const port = parseInt(opts.port);
-
-    // Manual validation needed
-    if (!['prod', 'dev'].includes(env)) {
-      console.error('Invalid env');
-      process.exit(1);
-    }
-    if (port < 1 || port > 65535) {
-      console.error('Invalid port');
-      process.exit(1);
-    }
-
-    console.log(`Deploying to ${env}:${port}`);
-  });
-
-program.parse();
 ```
 
 ## License
