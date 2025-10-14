@@ -1,4 +1,17 @@
 /**
+ * Extract option name from flags string
+ * e.g. "--env <value>" => "env", "-e, --env" => "env"
+ */
+export type ExtractOptionName<T extends string> =
+  T extends `${infer _}-${infer _} --${infer Name} ${infer _}`
+    ? Name
+    : T extends `--${infer Name} ${infer _}`
+    ? Name
+    : T extends `--${infer Name}`
+    ? Name
+    : never;
+
+/**
  * Option types
  */
 export type OptionType = 'string' | 'number' | 'boolean';

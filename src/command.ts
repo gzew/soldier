@@ -1,4 +1,4 @@
-import { ActionHandler, OptionConfig, OptionsToType } from './types.js';
+import { ActionHandler, OptionConfig, OptionsToType, ExtractOptionName } from './types.js';
 
 /**
  * Represents a CLI command
@@ -25,10 +25,10 @@ export class Command<TOptions extends Record<string, OptionConfig> = {}> {
   /**
    * Add an option to the command
    */
-  option<TName extends string, TConfig extends OptionConfig>(
-    flags: TName,
+  option<TFlags extends string, TConfig extends OptionConfig>(
+    flags: TFlags,
     config: TConfig
-  ): Command<TOptions & Record<TName, TConfig>> {
+  ): Command<TOptions & Record<ExtractOptionName<TFlags>, TConfig>> {
     // Parse flags to extract name and alias
     const parts = flags.trim().split(/\s+/);
     let name = '';

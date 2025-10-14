@@ -39,4 +39,5 @@ export type {
   OptionsToType,
   OptionToType,
   InferOptionType,
+  ExtractOptionName,
 } from './types.js';
