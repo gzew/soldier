@@ -1,20 +1,8 @@
 # Soldier 🎖️
 
-<p align="center">
-  <img src="./cartoon-soldier.gif" alt="Soldier" width="350">
-</p>
+> A modern CLI framework for JavaScript & TypeScript with zero dependencies
 
-<p align="center">
-  <strong>A modern CLI framework for JavaScript & TypeScript with zero dependencies</strong>
-</p>
-
-<p align="center">
-  Works perfectly with plain JavaScript, but gives you amazing type inference when you use TypeScript
-</p>
-
----
-
-![Soldier Demo](./soldier-quick.gif)
+Works perfectly with plain JavaScript, but gives you amazing type inference when you use TypeScript.
 
 ## Why Soldier?
 
